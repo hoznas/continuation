@@ -73,14 +73,8 @@ const ci = new ContinuationInterpreter();
 const code = [
   p,
   [sub, [add, 1, 2], [add, [sub, 3, 2], [add3, 1, 2, [sub, 2, 1]]]],
-]; // (1 + 2) - (3 - 2) + (1 + 2 + (2 - 1))
+];
 ci.build(code);
 
+// (1 + 2) - (3 - 2) + (1 + 2 + (2 - 1)) == -2
 ci.eval();
-
-// interface IF {
-//   args: Value[]; // 真偽を表す一つの値
-//   thenCase: Continuation;
-//   elseCase?: Continuation;
-//   next?: Continuation;
-// }
